@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <body>
+        <h3>
+            <a th:href="@{/}" th:text="HOME"> All news</a>
+        </h3>
+
+        <h2>Be a journalist!</h2>
+        <div th:if="${headerp == null}">
+            <form method="POST" th:action="@{/create}" enctype="multipart/form-data" id="new">
+                <p> Writers: if multiple, separate with ; 
+
+                    <input type="textarea" name="writer" id="writer"/> </p>
+
+
+                Header: <input type="text" name="header" id="header"/><br>
+                Ingress: <input type="text" name="ingress" id="ingress"/><br>
+                Your story: <textarea form="new" rows="15" name="content" cols="30" id="content"> </textarea><br>
+                <input type="checkbox" name="subject" value="World"> World news <br>
+                <input type="checkbox" name="subject" value="Sports"> Sports <br>
+                <input type="checkbox" name="subject" value="Weather"> Weather <br>
+                <input type="checkbox" name="subject" value="Entertainment"> Entertainment <br>
+                <p> Add picture: <input type="file" name="file" id="file"/>
+                    <input type="submit" value="Add!"/> </p>
+            </form>
+        </div>
+
+
+        <div th:if="${headerp != null}">
+            <form method="POST" th:action="@{/create}" enctype="multipart/form-data" id="new">
+                <p> Writers: if multiple, separate with ; 
+
+                    <input th:value="${writerp} "type="textarea" name="writer" id="writer" readonly/> </p>
+
+                Can't change header: <input th:value="${headerp}" type="text" name="header" id="header" readonly/>
+                Ingress: <input th:value="${ingressp}" type="text" name="ingress" id="ingress"/><br>
+                Your story: <textarea th:text="${contentp}" form="new" rows="15" name="content" cols="30" id="content"> 
+                </textarea><br>
+                
+                <input type="checkbox" name="subject" value="World"> World news <br>
+                <input type="checkbox" name="subject" value="Sports"> Sports <br>
+                <input type="checkbox" name="subject" value="Weather"> Weather <br>
+                <input type="checkbox" name="subject" value="Entertainment"> Entertainment <br>
+                <img th:src="@{/images/{id}/content(id=${articleId})}"/>
+                <p> New picture must be added: <input type="file" name="file" id="file"/>
+                    <input type="submit" value="Add!"/> </p>
+        </div>
+    </form>
+</body>
+</html>

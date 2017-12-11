@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>News</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <body>
+        <table style="width:100%">
+            <tr>
+                <th> <a th:href="@{/}" th:text="All"> All news</a>
+                </th>
+                <th> <a th:href="@{/popular}" th:text="Popular"> All news</a>
+                </th>
+                <th th:each="subject : ${subjects}">
+                    <a th:href="@{/{subjectName}(subjectName=${subject.name})}" th:text="${subject.name}">subject name</a>
+                </th>
+                
+                <th> <a th:href="@{/create}" th:text="Create"> create </a>
+                </th>
+            </tr>
+        </table>
+        <h1> Edit news </h1>
+        <br>
+    <th th:each="article : ${articles}">
+        
+            <a th:href="@{/create/{article.id}(articleId=${article.id})}" th:text="${article.header}">
+                <h1 th:text="${article.header}">
+        </h1>
+        </a>
+        <br>
+    
+
+</body>
+</html>

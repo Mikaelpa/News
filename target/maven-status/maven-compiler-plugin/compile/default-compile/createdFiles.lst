@@ -1,0 +1,8 @@
+wad/controller/DefaultController.class
+wad/domain/Article.class
+wad/domain/Writer.class
+wad/domain/Subject.class
+wad/repository/WriterRepository.class
+wad/Start.class
+wad/repository/ArticleRepository.class
+wad/repository/SubjectRepository.class
