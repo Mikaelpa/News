@@ -2,4 +2,4 @@
 News
 
 
-HUOM! Sovellus tukee vain .ong kuvia!
+HUOM! Sovellus tukee vain .png kuvia!
